@@ -445,8 +445,8 @@ class VotePollForm(forms.Form):
 
 
 class PollForm(forms.ModelForm):
-    question = forms.CharField(label=_("Question"))
-    answers = forms.CharField(label=_("Answers"), min_length=2, widget=forms.Textarea,
+    question = forms.CharField(label=_("Question"), required=False)
+    answers = forms.CharField(label=_("Answers"), required=False, min_length=2, widget=forms.Textarea,
         help_text=_("Write each answer on a new line.")
     )
     days = forms.IntegerField(label=_("Days"), required=False, min_value=1,
