@@ -13,7 +13,6 @@ from django.core.files.uploadedfile import SimpleUploadedFile
 from django.core.serializers.json import DjangoJSONEncoder
 from django.conf import settings
 from django.forms.utils import ValidationError
-from django.utils import six
 from django.utils.translation import ugettext_lazy as _
 
 

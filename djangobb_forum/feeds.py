@@ -1,6 +1,6 @@
 from django.contrib.syndication.views import Feed, FeedDoesNotExist
 from django.utils.feedgenerator import Atom1Feed
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 from django.db.models import Q
 from django.http import Http404
@@ -64,7 +64,7 @@ class LastTopics(ForumFeed):
 class LastPostsOnTopic(ForumFeed):
     title_template = 'djangobb_forum/feeds/posts_title.html'
     description_template = 'djangobb_forum/feeds/posts_description.html'
-    
+
     def get_object(self, request, topic_id):
         topic = Topic.objects.get(id=topic_id)
         if not topic.forum.category.has_access(request.user):
@@ -114,7 +114,7 @@ class LastPostsOnForum(ForumFeed):
 class LastPostsOnCategory(ForumFeed):
     title_template = 'djangobb_forum/feeds/posts_title.html'
     description_template = 'djangobb_forum/feeds/posts_description.html'
-    
+
     def get_object(self, request, category_id):
         category = Category.objects.get(id=category_id)
         if not category.has_access(request.user):

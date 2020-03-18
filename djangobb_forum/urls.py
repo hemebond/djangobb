@@ -8,7 +8,7 @@ from djangobb_forum.forms import EssentialsProfileForm, \
     PersonalProfileForm, MessagingProfileForm, PersonalityProfileForm, \
     DisplayProfileForm, PrivacyProfileForm, UploadAvatarForm
 
-
+app_name = 'djangobb'
 urlpatterns = [
 
     # Forum
