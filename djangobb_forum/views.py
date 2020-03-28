@@ -525,6 +525,7 @@ def add_topic(request, forum_id):
         'form': form,
         'form_url': request.path,
         'back_url': forum.get_absolute_url(),
+        'forum_settings': forum_settings,
     }
     return render(request, 'djangobb_forum/add_topic.html', context)
 
@@ -647,9 +648,11 @@ def edit_post(request, post_id):
         messages.success(request, _("Post updated."))
         return HttpResponseRedirect(post.get_absolute_url())
 
-    return render(request, 'djangobb_forum/edit_post.html', {'form': form,
-            'post': post,
-            })
+    return render(request, 'djangobb_forum/edit_post.html', {
+        'form': form,
+        'post': post,
+        'forum_settings': forum_settings,
+    })
 
 
 @login_required

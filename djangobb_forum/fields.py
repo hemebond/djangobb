@@ -92,7 +92,7 @@ class JSONField(models.TextField):
             return None
 
         try:
-            if isinstance(value, six.string_types):
+            if isinstance(value, str):
                 return json.loads(value)
         except ValueError:
             pass
