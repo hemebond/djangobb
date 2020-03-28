@@ -55,7 +55,7 @@ class AddPostForm(forms.ModelForm):
     name = forms.CharField(label=_('Subject'), max_length=255,
                            widget=forms.TextInput(attrs={'size':'115'}))
     attachment = forms.FileField(label=_('Attachment'), required=False)
-    subscribe = forms.BooleanField(label=_('Subscribe'), help_text=_("Subscribe this topic."), required=False)
+    subscribe = forms.BooleanField(label=_('Subscribe'), help_text=_("Subscribe to this topic."), required=False)
 
     class Meta:
         model = Post
@@ -470,7 +470,7 @@ class PollForm(forms.ModelForm):
         # validate if there is more than whitespaces ;)
         raw_answers = self.cleaned_data["answers"]
         answers = [answer.strip() for answer in raw_answers.splitlines() if answer.strip()]
-        if answers:
+        if not answers:
             raise forms.ValidationError(_("There is no valid answer!"))
 
         # validate length of all answers
