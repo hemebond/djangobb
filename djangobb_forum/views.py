@@ -651,6 +651,7 @@ def edit_post(request, post_id):
     return render(request, 'djangobb_forum/edit_post.html', {
         'form': form,
         'post': post,
+        'topic': topic,
         'forum_settings': forum_settings,
     })
 
