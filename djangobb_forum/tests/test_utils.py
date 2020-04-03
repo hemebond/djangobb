@@ -50,13 +50,3 @@ class TestPaginators(TestCase):
         page = get_page(self.posts, request, 3)
         self.assertEqual(page.number, 1)
         self.assertEqual(page.paginator.num_pages, 2)
-
-
-class TestVersion(TestCase):
-    def test_get_version(self):
-        import djangobb_forum
-
-        djangobb_forum.version_info = (0, 2, 1, 'f', 0)
-        self.assertEqual(djangobb_forum.get_version(), '0.2.1')
-        djangobb_forum.version_info = (2, 3, 1, 'a', 5)
-        self.assertIn(djangobb_forum.get_version(), '2.3.1a5.dev0')

@@ -1,4 +1,4 @@
-Django
+Django>=3.0.2
 django-haystack @ git+https://github.com/django-haystack/django-haystack.git@ea3f8c961934e8871b89881d7fab09e038191899#egg=django_haystack
 Pillow
 postmarkup
