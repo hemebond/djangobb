@@ -799,7 +799,10 @@ def open_close_topic(request, topic_id, action):
 def users(request):
     users = User.objects.filter(forum_profile__post_count__gte=forum_settings.POST_USER_SEARCH).order_by('username')
     form = UserSearchForm(request.GET)
-    users = form.filter(users)
+    if form.is_valid():
+        users = form.filter(users)
+    else:
+        form = UserSearchForm()
     return render(request, 'djangobb_forum/users.html', {
         'users_page': get_page(users, request, forum_settings.USERS_PAGE_SIZE),
         'form': form,
